@@ -56,23 +56,44 @@
     <nav>
         <div class="nav-wrapper white">
             <div class="container">
-                <a href="index.html" class="brand-logo"><img alt="" title="" src="img/weblogo.png" class="responsive-img">
+                <a href="{{ route('index.html')}}" class="brand-logo"><img alt="" title="" src="{{ asset('img/weblogo.png')}}" class="responsive-img">
                     <span class="forum-title">Forum</span>
                 </a>
+                @auth
                 <ul id="theme-menu" class="dropdown-content">
                     <li><a href="profile.html">Profiel</a></li>
-                    <li><a href="dashboard.html">Beheer</a></li>
-                    <li><a href="logout.html">Afmelden</a></li>
+
+                    @if(auth()->user()->IsAdmin())
+                        <li><a href="{{route('admin.dashboard')}}">Beheer</a></li>
+                    @endif
+
+                    <li>
+                        <a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            Afmelden
+                        </a>
+
+                        <form id="logout-form" action="{{route('logout')}}" method="POST" style="display: none">
+                            @csrf
+                        </form>
+                    </li>
                 </ul>
+                @endauth
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="index.html">Home</a></li>
+
+                    @guest
                     <li><a href="register.html">Registreren</a></li>
                     <li><a href="login.html">Aanmelden</a></li>
+                    @endguest
+
+
+                    @auth
                     <li>
                         <a href="/" data-activates="theme-menu" class="dropdown-button">
                             <img src="http://www.gravatar.com/avatar/fc7d81525f7040b7e34b073f0218084d?s=20" alt="" class="square"> Username &dtrif;
                         </a>
                     </li>
+                    @endauth
                 </ul>
             </div>
         </div>
@@ -237,5 +258,6 @@
 <script type="text/javascript" src="js/ckeditor/plugins/prism/lib/prism/prism_patched.min.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript" src="js/forum.js"></script>
+@yield('scripts')
 </body>
 </html>
