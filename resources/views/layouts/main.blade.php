@@ -56,7 +56,7 @@
     <nav>
         <div class="nav-wrapper white">
             <div class="container">
-                <a href="{{ route('index.html')}}" class="brand-logo"><img alt="" title="" src="{{ asset('img/weblogo.png')}}" class="responsive-img">
+                <a href="{{route('home.index')}}" class="brand-logo"><img alt="" title="" src="{{ asset('img/weblogo.png')}}" class="responsive-img">
                     <span class="forum-title">Forum</span>
                 </a>
                 @auth
@@ -79,18 +79,19 @@
                 </ul>
                 @endauth
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="{{route('home.index')}}">Home</a></li>
 
                     @guest
-                    <li><a href="register.html">Registreren</a></li>
-                    <li><a href="login.html">Aanmelden</a></li>
+                    <li><a href="{{route('register')}}">Registreren</a></li>
+                    <li><a href="{{route('login')}}">Aanmelden</a></li>
                     @endguest
 
 
                     @auth
                     <li>
                         <a href="/" data-activates="theme-menu" class="dropdown-button">
-                            <img src="http://www.gravatar.com/avatar/fc7d81525f7040b7e34b073f0218084d?s=20" alt="" class="square"> Username &dtrif;
+                            <img src="http://www.gravatar.com/avatar/fc7d81525f7040b7e34b073f0218084d?s=20" alt="" class="square">
+                            {{ auth()->user() }} &dtrif;
                         </a>
                     </li>
                     @endauth
@@ -103,132 +104,7 @@
 
 <!-- BEGIN PAGINA CONTAINER -->
 <div class="container main-content">
-    <div class="row first-row">
-        <div class="col s12">
-            <div class="card">
-                <div class="card-content">
-                    <span class="card-title">Threads</span>
-                    <div class="collection">
-                        <!-- BEGIN VAN EEN THREAD -->
-                        <a href="thread.html" class="collection-item avatar collection-link">
-                            <img src="img/icon-php.png" alt="" class="circle">
-                            <div class="row">
-                                <div class="col s9">
-                                    <div class="row last-row">
-                                        <div class="col s12">
-                                            <span class="title">PHP</span>
-                                            <p>Eerste paar regels van het nieuwste bericht en door wie en wanneer</p>
-                                        </div>
-                                    </div>
-                                    <div class="row last-row">
-                                        <div class="col s12 post-timestamp">Moderator: SMN</div>
-                                    </div>
-                                </div>
-                                <div class="col s3">
-                                    <h6 class="title center-align">Statistieken</h6>
-                                    <p class="center-align">26 topics</p>
-                                </div>
-                            </div>
-                        </a>
-                        <!-- EINDE VAN EEN THREAD -->
-
-                        <!-- BEGIN VAN EEN THREAD -->
-                        <a href="thread.html" class="collection-item avatar collection-link">
-                            <img src="img/icon-html.png" alt="" class="circle">
-                            <div class="row">
-                                <div class="col s9">
-                                    <div class="row last-row">
-                                        <div class="col s12">
-                                            <span class="title">HTML</span>
-                                            <p>Eerste paar regels van het nieuwste bericht en door wie en wanneer</p>
-                                        </div>
-                                    </div>
-                                    <div class="row last-row">
-                                        <div class="col s12 post-timestamp">Moderator: SMN</div>
-                                    </div>
-                                </div>
-                                <div class="col s3">
-                                    <h6 class="title center-align">Statistieken</h6>
-                                    <p class="center-align">26 topics</p>
-                                </div>
-                            </div>
-                        </a>
-                        <!-- EINDE VAN EEN THREAD -->
-
-                        <!-- BEGIN VAN EEN THREAD -->
-                        <a href="thread.html" class="collection-item avatar collection-link">
-                            <img src="img/icon-css.png" alt="" class="circle">
-                            <div class="row">
-                                <div class="col s9">
-                                    <div class="row last-row">
-                                        <div class="col s12">
-                                            <span class="title">CSS</span>
-                                            <p>Eerste paar regels van het nieuwste bericht en door wie en wanneer</p>
-                                        </div>
-                                    </div>
-                                    <div class="row last-row">
-                                        <div class="col s12 post-timestamp">Moderator: SMN</div>
-                                    </div>
-                                </div>
-                                <div class="col s3">
-                                    <h6 class="title center-align">Statistieken</h6>
-                                    <p class="center-align">26 topics</p>
-                                </div>
-                            </div>
-                        </a>
-                        <!-- EINDE VAN EEN THREAD -->
-
-                        <!-- BEGIN VAN EEN THREAD -->
-                        <a href="thread.html" class="collection-item avatar collection-link">
-                            <img src="img/icon-js.png" alt="" class="circle">
-                            <div class="row">
-                                <div class="col s9">
-                                    <div class="row last-row">
-                                        <div class="col s12">
-                                            <span class="title">JAVASCRIPT</span>
-                                            <p>Eerste paar regels van het nieuwste bericht en door wie en wanneer</p>
-                                        </div>
-                                    </div>
-                                    <div class="row last-row">
-                                        <div class="col s12 post-timestamp">Moderator: SMN</div>
-                                    </div>
-                                </div>
-                                <div class="col s3">
-                                    <h6 class="title center-align">Statistieken</h6>
-                                    <p class="center-align">26 topics</p>
-                                </div>
-                            </div>
-                        </a>
-                        <!-- EINDE VAN EEN THREAD -->
-
-                        <!-- BEGIN VAN EEN THREAD -->
-                        <a href="thread.html" class="collection-item avatar collection-link">
-                            <img src="img/icon-java.png" alt="" class="circle">
-                            <div class="row">
-                                <div class="col s9">
-                                    <div class="row last-row">
-                                        <div class="col s12">
-                                            <span class="title">JAVA</span>
-                                            <p>Eerste paar regels van het nieuwste bericht en door wie en wanneer</p>
-                                        </div>
-                                    </div>
-                                    <div class="row last-row">
-                                        <div class="col s12 post-timestamp">Moderator: SMN</div>
-                                    </div>
-                                </div>
-                                <div class="col s3">
-                                    <h6 class="title center-align">Statistieken</h6>
-                                    <p class="center-align">26 topics</p>
-                                </div>
-                            </div>
-                        </a>
-                        <!-- EINDE VAN EEN THREAD -->
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    @yield('content')
 </div>
 <!-- EINDE PAGINA CONTAINER -->
 

@@ -16,7 +16,7 @@ class CreateThreadsTabel extends Migration
         Schema::create('threads', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->longText('content')->nullable();
+//          $table->longText('content')->nullable();
             $table->Text('description')->nullable();
             $table->foreignId('user_id');
             $table->timestamps();

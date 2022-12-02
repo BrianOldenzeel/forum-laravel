@@ -14,15 +14,16 @@ class Thread extends Model
     protected $fillable = [
         'title',
         'content',
-        'user_id'
+        'user_id',
+        'description'
     ];
 
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
-    public function topics(): HasMany
+    public function Topics(): HasMany
     {
-        return $this->hasMany(Topics::class);
+        return $this->hasMany(Topic::class);
     }
 }

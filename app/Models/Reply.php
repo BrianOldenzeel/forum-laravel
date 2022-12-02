@@ -23,7 +23,7 @@ class Reply extends Model
     }
     public function topic(): BelongsTo
     {
-        return $this->belongsTo(Topics::class);
+        return $this->belongsTo(Topic::class);
     }
 
 
