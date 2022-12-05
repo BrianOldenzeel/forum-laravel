@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 
 class ThreadController extends Controller
 {
-    public function index(int $id): \View
+    public function index(int $id): View
     {
-        $thread = Thread::with(['user', 'topic', 'topics.replies'])
+        $thread = Thread::with(['user', 'topics', 'topics.replies'])
             ->where('id', $id)
             ->first();
         return view('thread.index', compact('thread'));
