@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [\App\Http\Controllers\HomeController::class,'index'])->name('home.index');
 
-Route::get('thread/{id}', [\App\Http\Controllers\ThreadController::class, 'index'])->name('thread.index');
+Route::get('/thread/{id}', [\App\Http\Controllers\ThreadController::class, 'index'])->name('thread.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

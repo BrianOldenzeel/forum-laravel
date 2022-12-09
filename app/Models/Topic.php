@@ -24,7 +24,7 @@ class Topic extends Model
     }
     public function replies(): HasMany
     {
-        return $this->belongsTo(Reply::class);
+        return $this->hasMany(Reply::class);
     }
     public function threads(): HasMany
     {

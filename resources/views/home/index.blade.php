@@ -13,7 +13,7 @@
                     <div class="collection">
                         @foreach($threads as $thread)
                         <!-- BEGIN VAN EEN THREAD -->
-                        <a href="thread.html" class="collection-item avatar collection-link">
+                        <a href="{{route('thread.index', ['id' => $thread->id])}}" class="collection-item avatar collection-link">
                             <img src="{{ asset('img/icon-php.png')}}" alt="" class="circle">
                             <div class="row">
                                 <div class="col s9">

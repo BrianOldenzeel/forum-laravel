@@ -14,11 +14,11 @@
                 <div class="card">
                     <div class="card-content">
                         <div class="row">
-                            <form class="col s12" method="" action="">
+                            <form class="col s12" method="POST" action="{{ Route('login') }}">
                                 <h1 class="title">Aanmelden</h1>
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <input id="Email" name="email" type="text" class="validate">
+                                        <input id="Email" name="email" type="text" class="validate" value="{{old('email')}}">
                                         <label for="Email">Email</label>
                                     </div>
                                 </div>
