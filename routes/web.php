@@ -21,6 +21,14 @@ Route::get('/', [\App\Http\Controllers\HomeController::class,'index'])->name('ho
 
 Route::get('/thread/{id}', [\App\Http\Controllers\ThreadController::class, 'index'])->name('thread.index');
 
+Route::get('/topic/{id}', [\App\Http\Controllers\TopicController::class, 'index'])->name('topic.index');
+
+Route::post('/topic/{id}', [\App\Http\Controllers\ReplyController::class, 'store'])->name('reply.store');
+
+Route::middleware('auth')->group(function () {
+    Route::post('/topic/{id}', [\App\Http\Controllers\ReplyController::class, 'store'])->name('reply.store');
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');

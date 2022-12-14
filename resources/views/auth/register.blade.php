@@ -17,6 +17,7 @@
                     <div class="card-content">
                         <div class="row">
                             <form class="col s12" method="POST" action="{{route('register')}}">
+                                @csrf
                                 <h1 class="title">Registreren</h1>
                                 <div class="row">
                                     <div class="input-field col s12">
@@ -39,7 +40,7 @@
                                 <div class="row">
                                     <div class="input-field col s12">
                                         <input id="Passwordconfirm" type="password" name="password_confirmation" class="validate" required>
-                                        <label for="Password">Bevestig Wachtwoord</label>
+                                        <label for="Passwordconfirm">Bevestig Wachtwoord</label>
                                     </div>
                                 </div>
                                 <div class="row">

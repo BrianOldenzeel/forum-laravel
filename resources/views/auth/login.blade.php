@@ -15,6 +15,7 @@
                     <div class="card-content">
                         <div class="row">
                             <form class="col s12" method="POST" action="{{ Route('login') }}">
+                                @csrf
                                 <h1 class="title">Aanmelden</h1>
                                 <div class="row">
                                     <div class="input-field col s12">
