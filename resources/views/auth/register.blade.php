@@ -21,7 +21,7 @@
                                 <h1 class="title">Registreren</h1>
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <input id="Username" name="username" type="text" class="validate" value="{{old('name')}}" required autofocus>
+                                        <input id="Username" name="name" type="text" class="validate" value="{{old('name')}}" required autofocus>
                                         <label for="Username">Username</label>
                                     </div>
                                 </div>
