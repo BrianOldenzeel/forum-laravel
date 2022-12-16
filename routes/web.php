@@ -23,7 +23,7 @@ Route::get('/thread/{id}', [\App\Http\Controllers\ThreadController::class, 'inde
 
 Route::get('/topic/{id}', [\App\Http\Controllers\TopicController::class, 'index'])->name('topic.index');
 
-Route::post('/topic/{id}', [\App\Http\Controllers\ReplyController::class, 'store'])->name('reply.store');
+//Route::post('/topic/{id}', [\App\Http\Controllers\ReplyController::class, 'store'])->name('reply.store');
 
 Route::middleware('auth')->group(function () {
     Route::post('/topic/{id}', [\App\Http\Controllers\ReplyController::class, 'store'])->name('reply.store');

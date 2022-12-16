@@ -73,7 +73,7 @@
                                 <span class="reply-timestamp">Geplaatst op {{$reply->created_at}}</span>
                             </div>
                             <div class="col s10">
-                                <p>{!! $reply->content !!}}</p>
+                                <p>{!! $reply->content !!}</p>
                             </div>
                         </div>
                     </div>
@@ -88,12 +88,12 @@
             <!-- TOEVOEGEN VAN EEN REPLY -->
             <div class="card">
                 <div class="card-content">
-                    <form method="POST" action="{{route('reply.store', ['id' =>$topic->id])}}">
+                    <form method="POST" action="{{route('reply.store', ['id' => $topic->id])}}">
                         @csrf
                         <div class="row">
                             <div class="input-field col s6 has-error">
                                 <input id="title" type="hidden" name="topic_id" value="{{$topic->id}}">
-                                <input id="title" type="hidden" name="topic_id" value="{{auth()->user()->id}}">
+                                <input id="title" type="hidden" name="user_id" value="{{auth()->user()->id}}">
 
 
                             </div>
