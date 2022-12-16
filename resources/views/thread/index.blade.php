@@ -55,5 +55,37 @@
         </div>
 
     </div>
+
+    @auth
+        <div class="card">
+            <div class="card-content">
+                <form method="POST" action="{{route('TopicMake.store', ['id' => $thread->id])}}">
+                    @csrf
+                    <div class="row">
+                        <div class="input-field col s6 has-error">
+                            <input id="title" type="text" name="title" placeholder="Tik hier een titel voor het onderwerp in">
+                            <label for="title" class="active">Titel van de topic</label>
+                            <span>Titel is verplicht!</span>
+                            <input id="title" type="hidden" name="thread_id" value="{{$thread->id}}">
+                            <input id="title" type="hidden" name="user_id" value="{{auth()->user()->id}}">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12">
+                            <textarea id="message-body" name="content"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s6 push-s6">
+                            <button type="submit" class="btn right cyan darken-1">
+                                Post
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    @endauth
+
 @endsection
 

@@ -29,6 +29,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/topic/{id}', [\App\Http\Controllers\ReplyController::class, 'store'])->name('reply.store');
 });
 
+Route::middleware('auth')->group(function () {
+    Route::post('/thread/{id}', [\App\Http\Controllers\TopicMakeController::class, 'store'])->name('TopicMake.store');
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
