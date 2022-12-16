@@ -33,18 +33,30 @@ class ReplyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        $request->validate([
-            'topic_id' => 'required | exists:topics,id' ,
-            'user_id' => 'required | exists:users,id' ,
+//        $request->validate([
+//            'topic_id' => 'required | exists:topics,id' ,
+//            'user_id' => 'required | exists:users,id' ,
+//            'content' => 'required'
+//        ]);
+//
+//        Reply::create(
+//            $request->only(
+//                ['topic_id', 'user_id', 'content']
+//            )
+//        );
+
+        $validateData = $request->validate([
             'content' => 'required'
         ]);
 
         Reply::create(
-            $request->only(
-                ['topic_id', 'user_id', 'content']
-            )
+            $validateData + [
+                'topic_id' => $id,
+
+                'user_id' => auth()->id()
+            ]
         );
 
         return redirect()->back();

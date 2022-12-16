@@ -92,8 +92,8 @@
                         @csrf
                         <div class="row">
                             <div class="input-field col s6 has-error">
-                                <input id="title" type="hidden" name="topic_id" value="{{$topic->id}}">
-                                <input id="title" type="hidden" name="user_id" value="{{auth()->user()->id}}">
+{{--                                <input id="title" type="hidden" name="topic_id" value="{{$topic->id}}">--}}
+{{--                                <input id="title" type="hidden" name="user_id" value="{{auth()->user()->id}}">--}}
 
 
                             </div>

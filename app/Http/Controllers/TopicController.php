@@ -8,11 +8,9 @@ use Illuminate\View\View;
 
 class TopicController extends Controller
 {
-    public function index(int $id): View
+    public function index(Topic $topic): View
     {
-        $topic = Topic::with(['user', 'replies', 'replies.user'])
-            ->where('id', $id)
-            ->first();
+        $topic->load(['user', 'replies', 'replies.user']);
 
         return view('topic.index', compact('topic'));
 

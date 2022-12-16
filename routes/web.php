@@ -21,7 +21,7 @@ Route::get('/', [\App\Http\Controllers\HomeController::class,'index'])->name('ho
 
 Route::get('/thread/{id}', [\App\Http\Controllers\ThreadController::class, 'index'])->name('thread.index');
 
-Route::get('/topic/{id}', [\App\Http\Controllers\TopicController::class, 'index'])->name('topic.index');
+Route::get('/topic/{topic}', [\App\Http\Controllers\TopicController::class, 'index'])->name('topic.index');
 
 //Route::post('/topic/{id}', [\App\Http\Controllers\ReplyController::class, 'store'])->name('reply.store');
 

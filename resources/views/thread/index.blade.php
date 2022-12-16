@@ -16,7 +16,7 @@
 
                         @foreach($thread->topics as $topic)
                         <!-- BEGIN TOPIC -->
-                        <a href="{{route('topic.index', ['id' => $topic->id])}}" class="collection-item avatar collection-link">
+                        <a href="{{route('topic.index', ['topic' => $topic->id])}}" class="collection-item avatar collection-link">
                             <img src="http://www.gravatar.com/avatar/fc7d81525f7040b7e34b073f0218084d?s=50" alt="" class="square">
 
                             <div class="row">
