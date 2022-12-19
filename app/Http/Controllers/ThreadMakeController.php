@@ -35,18 +35,30 @@ class ThreadMakeController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required' ,
-            'description' => 'required' ,
-            'user_id' => 'required | exists:users,id' ,
+//        $request->validate([
+//            'title' => 'required' ,
+//            'description' => 'required' ,
+//            'user_id' => 'required | exists:users,id' ,
+//
+//        ]);
+//
+//        Thread::create(
+//            $request->only(
+//                ['title', 'description', 'user_id']
+//            )
+//        );
 
+        $validateData = $request->validate([
+            'description' => 'required',
+            'title' => 'required'
         ]);
 
         Thread::create(
-            $request->only(
-                ['title', 'description', 'user_id']
-            )
+            $validateData + [
+                'user_id' => auth()->id()
+            ]
         );
+
 
         return redirect()->back();
     }

@@ -58,7 +58,7 @@
                             <input id="title" type="text" name="title" placeholder="Tik hier een titel voor het onderwerp in">
                             <label for="title" class="active">Titel van de Thread</label>
                             <span>Titel is verplicht!</span>
-                            <input id="title" type="hidden" name="user_id" value="{{auth()->user()->id}}">
+{{--                            <input id="title" type="hidden" name="user_id" value="{{auth()->user()->id}}">--}}
                         </div>
                     </div>
                     <div class="row">
