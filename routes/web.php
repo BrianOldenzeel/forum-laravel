@@ -33,6 +33,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/thread/{id}', [\App\Http\Controllers\TopicMakeController::class, 'store'])->name('TopicMake.store');
 });
 
+Route::middleware('auth')->group(function () {
+    Route::post('/', [\App\Http\Controllers\ThreadMakeController::class, 'store'])->name('ThreadMake.store');
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');

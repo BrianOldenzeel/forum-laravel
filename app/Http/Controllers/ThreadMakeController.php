@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Topic;
+use App\Models\Thread;
 use Illuminate\Http\Request;
 
-class TopicMakeController extends Controller
+class ThreadMakeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -33,35 +33,20 @@ class TopicMakeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $id)
+    public function store(Request $request)
     {
-//        $request->validate([
-//            'title' => 'required ' ,
-//            'content' => 'required' ,
-//            'thread_id' => 'required | exists:threads,id' ,
-//            'user_id' => 'required | exists:users,id' ,
-//
-//        ]);
-//
-//        Topic::create(
-//            $request->only(
-//                ['title', 'content', 'thread_id', 'user_id']
-//            )
-//        );
+        $request->validate([
+            'title' => 'required' ,
+            'description' => 'required' ,
+            'user_id' => 'required | exists:users,id' ,
 
-        $validateData = $request->validate([
-            'content' => 'required',
-            'title' => 'required'
         ]);
 
-        Topic::create(
-            $validateData + [
-                'thread_id' => $id,
-
-                'user_id' => auth()->id()
-            ]
+        Thread::create(
+            $request->only(
+                ['title', 'description', 'user_id']
+            )
         );
-
 
         return redirect()->back();
     }
