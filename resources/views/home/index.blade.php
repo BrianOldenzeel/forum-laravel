@@ -51,7 +51,7 @@
     @auth
         <div class="card">
             <div class="card-content">
-                <form method="POST" action="{{route('ThreadMake.store', ['id' => $thread->id])}}">
+                <form method="POST" action="{{route('Thread.store', ['id' => $thread->id])}}">
                     @csrf
                     <div class="row">
                         <div class="input-field col s6 has-error">

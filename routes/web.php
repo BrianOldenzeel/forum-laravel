@@ -30,11 +30,11 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::post('/thread/{id}', [\App\Http\Controllers\TopicMakeController::class, 'store'])->name('TopicMake.store');
+    Route::post('/thread/{id}', [\App\Http\Controllers\TopicController::class, 'store'])->name('Topic.store');
 });
 
 Route::middleware('auth')->group(function () {
-    Route::post('/', [\App\Http\Controllers\ThreadMakeController::class, 'store'])->name('ThreadMake.store');
+    Route::post('/', [\App\Http\Controllers\ThreadController::class, 'store'])->name('Thread.store');
 });
 
 Route::get('/dashboard', function () {
