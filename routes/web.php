@@ -27,13 +27,7 @@ Route::get('/topic/{topic}', [\App\Http\Controllers\TopicController::class, 'ind
 
 Route::middleware('auth')->group(function () {
     Route::post('/topic/{id}', [\App\Http\Controllers\ReplyController::class, 'store'])->name('reply.store');
-});
-
-Route::middleware('auth')->group(function () {
     Route::post('/thread/{id}', [\App\Http\Controllers\TopicController::class, 'store'])->name('Topic.store');
-});
-
-Route::middleware('auth')->group(function () {
     Route::post('/', [\App\Http\Controllers\ThreadController::class, 'store'])->name('Thread.store');
 });
 
